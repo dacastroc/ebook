@@ -1,0 +1,46 @@
+\documentclass{book}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\usepackage{tocloft}
+\usepackage{etoolbox}
+
+\newcounter{good}
+\setcounter{good}{0}
+
+\newcommand{\listgoodname}{List of Goods}
+\newlistof{goods}{good}{\listgoodname}
+
+\newenvironment{good}[1]{
+\stepcounter{good}
+\addcontentsline{good}{figure}
+    {\protect\numberline{\thechapter.\thegood}#1}\par%
+\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title={Definition \thechapter.\thegood\space #1}]
+}{\end{tcolorbox}}
+
+\makeatletter
+\preto\chapter{\addtocontents{good}{\protect\addvspace{10\p@}}}%
+\makeatother
+
+\begin{document}
+
+\tableofcontents
+\listofgoods
+
+\chapter{One}
+
+\chapter{Two}
+\section{First}
+
+\begin{good}{A nice heading}
+\lipsum[2]
+\end{good}
+
+\begin{good}{Good}
+\lipsum[2]
+\end{good}
+
+\begin{good}{Good again}
+
+\end{good}
+
+\end{document}

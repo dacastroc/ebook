@@ -1,0 +1,55 @@
+%2multibyte Version: 5.50.0.2960 CodePage: 65001
+\documentclass{article}%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{lipsum}%
+\setcounter{MaxMatrixCols}{30}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{Codepage=65001}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+%TCIDATA{Created=Tuesday, October 01, 2013 15:22:16}
+%TCIDATA{LastRevised=Wednesday, October 02, 2013 08:18:22}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\PassOptionsToPackage{svgnames}{xcolor}
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+\newenvironment{myexampleblock}[1]{\tcolorbox[beamer,noparskip,breakable,
+colback=LightGreen,colframe=DarkGreen,colbacklower=LimeGreen!75!LightGreen,title=#1]}{\endtcolorbox}
+\newenvironment{myalertblock}[1]{\tcolorbox[beamer,noparskip,breakable,
+colback=LightCoral,colframe=DarkRed,colbacklower=Tomato!75!LightCoral,title=#1]}{\endtcolorbox}
+\newenvironment{myblock}[1]{\tcolorbox[beamer,noparskip,breakable,
+colback=LightBlue,colframe=DarkBlue,colbacklower=DarkBlue!75!LightBlue,title=#1]}{\endtcolorbox}
+\begin{document}
+
+\title{Beamer blocks in \texttt{article.cls} with \texttt{tcolorbox (v 2.00)}}
+\author{xxxxxx}
+\maketitle
+
+\section{Section}
+
+\lipsum[2]
+
+\begin{myblock}
+\lipsum[2-3] \lipsum[4-5] \lipsum[6-7]
+\end{myblock}
+
+\begin{myexampleblock}
+\lipsum[2]
+\end{myexampleblock}
+
+\begin{myalertblock}
+\lipsum[1]
+\end{myalertblock}
+
+
+\end{document}

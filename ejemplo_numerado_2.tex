@@ -1,0 +1,159 @@
+\documentclass{report}
+\usepackage[absolute]{textpos}
+\usepackage{pdfpages}
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+\usepackage{cleveref}
+\makeatletter
+\crefformat{tcb@cnt@Example}{example~#2#1#3}
+\Crefformat{tcb@cnt@Example}{Example~#2#1#3}
+\makeatother
+
+\newcounter{test}
+
+\newtcolorbox{test}[2]
+[%
+breakable,
+arc=0pt,
+outer arc=0pt,
+coltitle=black,
+fonttitle=\bfseries,
+boxrule=0pt,
+colframe=gray!30,
+colback=gray!30,
+title after break={Example~\thetest\ (Continued)}]{%
+before upper={\stepcounter{test}\textbf{Example~\thetest.\ }%
+},
+label={#2},
+#1}
+
+\newtcbtheorem[auto counter, number within = chapter]
+{Example}{Ejem\smash{p}lo}{%                                                        
+ fonttitle=\bfseries\large,
+ title after break={\bfseries{...continuaci\'on del ejemplo ~\thetcbcounter.}},
+ enhanced,
+ skin=beamer,
+ beamer,
+ drop fuzzy shadow,
+ breakable,
+ colback=green!5!white,
+ colframe=red!50!yellow,
+ width=\linewidth
+}{exa}
+
+
+\newtcbtheorem{corollary}{Corollary}{%
+  breakable,
+  colback=blue!10,
+  colframe=blue!25,
+  fonttitle=\bfseries
+}{cor}
+
+
+
+\colorlet{xlightblue}{blue!5}
+
+\newtcolorbox{beamerlikethm}[1]{
+  title=#1,
+  beamer,
+  colback=xlightblue,
+  colframe=blue!30,
+  fonttitle=\bfseries,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm,
+  middle=1mm
+}
+
+
+\newtcolorbox{beamerlikethm2}[1]{
+  title=#1,
+  beamer, 
+  colback=xlightblue,
+  colframe=blue!30,
+  fonttitle=\bfseries,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm,
+  middle=1mm,
+  breakable,
+}
+
+\begin{document}
+\chapter{adadad}
+\section{Seccion}
+\begin{Example}{Cargas en un cuadrado}{exam}
+ \emph{En al figura se muestran cuatro partículas colocadas en los vértices de un rectángulo de lados $a$ y $b$, con las cargas eléctricas indicadas. Si $a=8.0 A$ y $b=6.0 A$, encontrar el potencial el\'ectrico en el centro del rectangulo. Tomar}
+\newline
+{\bf{\large{Soluci\'on:}}}
+\newline
+La soluci\'on es....
+\begin{equation}
+P(x)=\sum_{0\le i\le m\\0<j<n}P(i, j)
+\end{equation}
+
+\lipsum[1-6]
+\end{Example}
+\begin{Example}{Cargas en un cuadrado}{exam}
+ \emph{En al figura se muestran cuatro partículas colocadas en los vértices de un rectángulo de lados $a$ y $b$, con las cargas eléctricas indicadas. Si $a=8.0 A$ y $b=6.0 A$, encontrar el potencial el\'ectrico en el centro del rectangulo. Tomar}
+\newline
+{\bf{\large{Soluci\'on:}}}
+\newline
+La soluci\'on es....
+\begin{equation}
+P(x)=\sum_{0\le i\le m\\0<j<n}P(i, j)
+\end{equation}
+
+\lipsum[1-6]
+\end{Example}
+\noindent
+\Cref{exa:exam} and~\cref{exa:exam}
+
+\begin{test}{testa}
+\lipsum[1-6]
+\end{test}
+\begin{tcolorbox}
+[enhanced,breakable,pad at break=0mm,colback=green!5!,colframe=green!35!black,title=\large\bf{Trabajo}]
+\begin{equation}
+U=\frac{1}{2}CV^{2}=\frac{Q^{2}}{2C}
+\end{equation}
+\end{tcolorbox}
+
+\begin{corollary}{Title}{dummy}
+    \[
+      x+y=y+x
+    \]
+  \end{corollary}
+  
+  \begin{beamerlikethm}{Theorem (Pythagoras)}
+\[ a^2 + b^2 = c^2 \]
+\end{beamerlikethm}
+
+\begin{beamerlikethm2}{Theorem (Pythagoras)}
+\[ a^2 + b^2 = c^2 \]
+\end{beamerlikethm2}
+
+
+
+\begin{beamerlikethm2}{Something}
+\lipsum[5]
+\begin{equation}
+U=\frac{1}{2}CV^{2}=\frac{Q^{2}}{2C}
+\end{equation}
+\end{beamerlikethm2}
+\newpage
+
+
+%\begin{textblock*}{297mm}(0mm,0mm)
+%        \includegraphics[width=\paperwidth]{C:/ebookF/fig_general/92283026}
+%\end{textblock*}
+\newpage
+\thispagestyle{empty}
+\begin{textblock*}{\paperwidth}(0mm,0mm)
+   \noindent\includegraphics[width=\paperwidth,height=\paperheight]{C:/ebookF/fig_general/2}
+\end{textblock*}
+\mbox{}
+\newpage
+\end{document}

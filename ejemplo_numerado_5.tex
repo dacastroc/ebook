@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage{tcolorbox}
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+
+\newtcbox{\mybox}{nobeforeafter,colframe=mycolor,colback=mycolor!10!white,boxrule=0.5pt,arc=4pt,
+  boxsep=0pt,left=6pt,right=6pt,top=6pt,bottom=6pt,tcbox raise base}
+
+\begin{document}
+Some text. 
+\mybox{Here is some fancy box text.} 
+More text.
+\end{document}

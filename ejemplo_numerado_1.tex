@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[letterpaper]{geometry}
+%\usepackage{mwe}%load graphix,lipsum,...
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+\usepackage{lipsum}
+
+%\newcounter{example}[section]
+%\renewcommand\theexample{\thesection.\arabic{example}}
+
+\newtcbtheorem[auto counter, number within = section]
+{Example}{Ejemplo}{%
+ fonttitle=\bfseries\large,
+ enhanced,
+ skin=beamer,
+ breakable,
+ pad at break=0mm,
+ colback=green!5!white,
+ colframe=red!50!yellow,
+ width=\linewidth,%
+ }{exa}
+
+
+\begin{document}
+
+\section{Test Section}
+
+\begin{Example}{jjfjfj}
+\emph{En al figura se muestran cuatro partículas colocadas en los vértices de un rectángulo de lados $a$ y $b$, con las cargas eléctricas indicadas. Si $a=8.0 A$ y $b=6.0 A$, encontrar el potencial el\'ectrico en el centro del rectangulo. Tomar}
+\newline
+{\bf{\large{Soluci\'on:}}}
+\newline
+La soluci\'on es....
+\begin{equation}
+P(x)=\sum_{0\le i\le m\\0<j<n}P(i, j)
+\end{equation}
+\lipsum[1]
+\end{Example}
+
+\end{document}

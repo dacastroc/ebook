@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+
+\newenvironment{WrapText}[1][r]
+  {\wrapfigure{#1}{0.5\textwidth}\tcolorbox}
+  {\endtcolorbox\endwrapfigure}
+
+\newcommand\Text{% some text for the example
+tesque cursus luctus mauris. Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tincidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend at, accumsan nec, suscipit a, ipsum.}
+
+\begin{document}
+
+\begin{WrapText}
+\Text
+\end{WrapText}
+\lipsum[2]
+\lipsum[2]
+\begin{WrapText}
+\Text
+\end{WrapText}
+\lipsum[1-3]
+
+\end{document}

@@ -1,0 +1,25 @@
+\newtcbtheorem[breakable]
+{Objetivos}{Puntos principales}{%                                                        
+ fonttitle=\large\sffamily\bfseries,
+ enhanced,
+ skin=beamer,
+ beamer,
+ pad at break=3mm,
+ drop fuzzy shadow,
+ colback=green!5!white,
+ colframe=red!50!yellow,
+ width=\linewidth
+}{exa}
+
+\newtcolorbox{Objetivos}[1][]{
+breakable,
+enhanced,
+colback=red!05,
+colframe=red!70!black,
+top=\baselineskip,
+enlarge top by=\topsep,
+overlay unbroken and first={
+  \node[thick,draw=green!40!black,fill=green!20,rounded corners] at (frame.north) %
+  {\refstepcounter{lemma}\strut{\bfseries\lemmname~\thelemma}\if#1\@empty\relax\relax\else~(#1)\fi};
+  }
+}

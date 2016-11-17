@@ -1,0 +1,399 @@
+%2multibyte Version: 5.50.0.2960 CodePage: 65001
+\documentclass[notes=show]{beamer}%
+\usepackage{mathpazo}
+\usepackage{hyperref}
+\usepackage{multimedia}%
+\usepackage{amsmath}%
+\setcounter{MaxMatrixCols}{30}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{Codepage=65001}
+%TCIDATA{CSTFile=beamer.cst}
+%TCIDATA{Created=Sunday, October 06, 2013 18:27:48}
+%TCIDATA{LastRevised=Sunday, October 06, 2013 18:29:52}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="2">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Other Documents\SW\Slides - Beamer">}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\newenvironment{stepenumerate}{\begin{enumerate}[<+->]}{\end{enumerate}}
+\newenvironment{stepitemize}{\begin{itemize}[<+->]}{\end{itemize} }
+\newenvironment{stepenumeratewithalert}{\begin{enumerate}[<+-| alert@+>]}{\end{enumerate}}
+\newenvironment{stepitemizewithalert}{\begin{itemize}[<+-| alert@+>]}{\end{itemize} }
+\usetheme{Madrid}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\definecolor{pbblue}{HTML}{0A75A8}% filling color for the progress bar
+\definecolor{pbgray}{HTML}{575757}% background color for the progress bar
+\makeatletter
+\def\progressbar@progressbar{} % the progress bar
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbht %progressbar height
+\newdimen\progressbar@pbwd %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+\progressbar@pbwd=\linewidth
+\progressbar@pbht=1.5ex
+% the progress bar
+\def\progressbar@progressbar{%
+\progressbar@tmpcounta=\insertframenumber
+\progressbar@tmpcountb=\inserttotalframenumber
+\progressbar@tmpdim=\progressbar@pbwd
+\multiply\progressbar@tmpdim by \progressbar@tmpcounta
+\divide\progressbar@tmpdim by \progressbar@tmpcountb
+\begin{tikzpicture}[rounded corners=2pt,very thin]
+\shade[top color=pbgray!20,bottom color=pbgray!20,middle color=pbgray!50]
+(0pt, 0pt) rectangle ++ (\progressbar@pbwd, \progressbar@pbht);
+\shade[draw=pbblue,top color=pbblue!50,bottom color=pbblue!50,middle color=pbblue] %
+(0pt, 0pt) rectangle ++ (\progressbar@tmpdim, \progressbar@pbht);
+\draw[color=normal text.fg!50]
+(0pt, 0pt) rectangle (\progressbar@pbwd, \progressbar@pbht)
+node[pos=0.5,color=normal text.fg] {\textnormal{%
+\pgfmathparse{\insertframenumber*100/\inserttotalframenumber}%
+\pgfmathprintnumber[fixed,precision=2]{\pgfmathresult}\,\%%
+}%
+};
+\end{tikzpicture}%
+}
+\addtobeamertemplate{headline}{}
+{%
+\begin{beamercolorbox}[wd=\paperwidth,ht=4ex,center,dp=1ex]{white}%
+\progressbar@progressbar%
+\end{beamercolorbox}%
+}
+\makeatother
+%BeginMSIPreambleData
+\ifx\pdfoutput\relax\let\pdfoutput=\undefined\fi
+\newcount\msipdfoutput
+\ifx\pdfoutput\undefined\else
+\ifcase\pdfoutput\else
+\msipdfoutput=1
+\ifx\paperwidth\undefined\else
+\ifdim\paperheight=0pt\relax\else\pdfpageheight\paperheight\fi
+\ifdim\paperwidth=0pt\relax\else\pdfpagewidth\paperwidth\fi
+\fi\fi\fi
+%EndMSIPreambleData
+\begin{document}
+
+\title{Creating Beamer presentations in \textsl{Scientific WorkPlace\/}{} and
+\textsl{Scientific Word}{}}
+\subtitle{Impressive slide presentations}
+\author{MacKichan Software Technical Support}
+\institute{Delete or rename Institute field}
+\date{[01/07]January 2007}
+\maketitle
+
+\section{Creating Beamer presentations in Scientific WorkPlace and Scientific
+Word}
+
+\subsection{Slides - Beamer}%
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+%
+
+%TCIMACRO{\QTR{frametitle}{Slides - Beamer}}%
+%BeginExpansion
+\frametitle{Slides - Beamer}%
+%EndExpansion
+
+
+\begin{itemize}
+\item This document illustrates the appearance of a presentation created with
+the shell \textbf{Slides - Beamer}.
+
+\item The
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+Beamer document class produces presentations, handouts, and transparency
+slides as typeset PDF files.
+
+\item DVI output is not available.
+
+\item The class provides
+
+\begin{itemize}
+\item Control of layout, color, and fonts
+
+\item A variety of list and list display mechanisms
+
+\item Dynamic transitions between slides
+
+\item Presentations containing text, mathematics, graphics, and animations
+\end{itemize}
+
+\item A single document file contains an entire Beamer presentation.
+
+\item Each slide in the presentation is created inside a frame environment.
+
+\item To produce a sample presentation in \textsl{SWP }or \textsl{SW}, typeset
+this shell document with \textsc{pdf}%
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+.
+\end{itemize}%
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+
+\subsection{Beamer Files}%
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+%
+
+%TCIMACRO{\QTR{frametitle}{Beamer Files}}%
+%BeginExpansion
+\frametitle{Beamer Files}%
+%EndExpansion
+
+
+\begin{itemize}
+\item The document class base file for this shell is \texttt{beamer.cls}.
+
+\item To see the available class options, choose \textsf{Typeset, }choose
+\textsf{Options and Packages}, select the \textsf{Class Options} tab, and then
+click the \textsf{Modify} button.
+
+\item This shell specifies showing all notes but otherwise uses the default
+class options.
+
+\item The typesetting specification for this shell document uses these options
+and packages with the defaults indicated:
+\end{itemize}
+
+\begin{center}
+\
+\begin{tabular}
+[c]{ll}%
+\textbf{Options and Packages} & \textbf{Defaults}\\\hline
+Document class options & Show notes\\
+Packages: & \\
+\quad hyperref & Standard\\
+\quad mathpazo & None\\
+\quad multimedia & None\\\hline
+\end{tabular}
+
+\end{center}%
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+
+\subsection{Using This Shell}%
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+%
+
+%TCIMACRO{\QTR{frametitle}{Using This Shell}}%
+%BeginExpansion
+\frametitle{Using This Shell}%
+%EndExpansion
+
+
+\begin{itemize}
+\item The front matter of this shell has a number of sample entries that you
+should replace with your own.
+
+\item Replace the body of this document with your own text. To start with a
+blank document, delete all of the text in this document.
+
+\item Changes to the typeset format of this shell and its associated \LaTeX{}
+formatting file (\texttt{beamer.cls}) are not supported by MacKichan Software,
+Inc. If you want to make such changes, please consult the \LaTeX{} manuals or
+a local \LaTeX{} expert.
+
+\item If you modify this document and export it as \textquotedblleft Slides -
+Beamer.shl\textquotedblright\ in the \texttt{Shells%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+Other%
+%TCIMACRO{\TEXTsymbol{\backslash}}%
+%BeginExpansion
+$\backslash$%
+%EndExpansion
+SW} directory, it will become your new Slides - Beamer shell.
+\end{itemize}%
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+
+\subsection{What is Beamer?}%
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+%
+
+%TCIMACRO{\QTR{frametitle}{What is Beamer?}}%
+%BeginExpansion
+\frametitle{What is Beamer?}%
+%EndExpansion
+
+
+\begin{itemize}
+\item Beamer is a
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+document class that produces beautiful \textsc{pdf}%
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+presentations and transparency slides.
+
+\item Beamer presentations feature
+
+\begin{stepitemize}
+\item \textsc{pdf}%
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+output
+
+\item Global and local control of layout, color, and fonts
+
+\item List items that can appear one at a time
+
+\item Overlays and dynamic transitions between slides
+
+\item Standard
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+constructs
+
+\item Typeset text, mathematics $\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}$, and graphics
+\end{stepitemize}
+
+\item To produce a sample presentation in \textsl{SWP }or \textsl{SW}, typeset
+this shell document with \textsc{pdf}%
+%TCIMACRO{\TeXButton{LaTeX}{\LaTeX{}} }%
+%BeginExpansion
+\LaTeX{}
+%EndExpansion
+.
+\end{itemize}%
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+
+\subsection{Creating frames}%
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+%
+
+%TCIMACRO{\QTR{frametitle}{Creating frames}}%
+%BeginExpansion
+\frametitle{Creating frames}%
+%EndExpansion
+
+
+\begin{stepitemize}
+\item All the information in a Beamer\emph{\ }presentation is contained in
+\textit{frames.}
+
+\item Each frame corresponds to a single presentation slide.
+
+\item To create frames in a Beamer document,
+
+\begin{stepenumerate}
+\item Apply a frame fragment:
+
+\begin{stepitemize}
+\item The \textbf{Frame with title and subtitle} fragment starts and ends a
+new frame and includes a title and subtitle.
+
+\item The \textbf{Frame with title }fragment starts and ends a new frame and
+includes a title.
+
+\item The \textbf{Frame} fragment starts and ends a new frame.
+\end{stepitemize}
+
+\item Place the text for the frame between the BeginFrame and EndFrame fields.
+
+\item Enter the frame title and subtitle.
+
+If you used the Frame fragment, apply the Frame title and Frame subtitle text
+tags as necessary.
+\end{stepenumerate}
+\end{stepitemize}%
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+
+\subsection{Learn more about Beamer}%
+
+%TCIMACRO{\TeXButton{BeginFrame}{\begin{frame}}}%
+%BeginExpansion
+\begin{frame}%
+%EndExpansion
+%
+
+%TCIMACRO{\QTR{frametitle}{Learn more about Beamer}}%
+%BeginExpansion
+\frametitle{Learn more about Beamer}%
+%EndExpansion
+
+
+\begin{itemize}
+\item This shell and the associated fragments provide basic support for Beamer
+in \textsl{SWP }and \textsl{SW}.
+
+\item To learn more about Beamer, see SWSamples/PackageSample-beamer.tex in
+your program installation.
+
+\item For complete information, read the BeamerUserGuide.pdf manual found via
+a link at the end of SWSamples/PackageSample-beamer.tex.
+
+\item For support, contact \textbf{support@mackichan.com}.
+\end{itemize}%
+
+%TCIMACRO{\TeXButton{EndFrame}{\end{frame}}}%
+%BeginExpansion
+\end{frame}%
+%EndExpansion
+
+
+
+\end{document}

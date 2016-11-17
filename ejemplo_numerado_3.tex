@@ -1,0 +1,62 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[most]{tcolorbox}
+\usepackage{chngcntr}
+\usepackage{lipsum}
+
+% counters
+\newcounter{theorem}
+\newcounter{lemma}
+\counterwithin{theorem}{chapter}
+\counterwithin{lemma}{chapter}
+
+% names for the structures
+\newcommand\theoname{Théorème}
+\newcommand\lemmname{Lemme}
+
+\makeatletter
+
+% environment for theorems
+\newtcolorbox{theorem}[1][]{
+breakable,
+enhanced,
+colback=blue!05,
+colframe=orange,
+top=\baselineskip,
+enlarge top by=\topsep,
+overlay unbroken and first={
+  \node[xshift=10pt,thick,draw=blue,fill=blue!20,rounded corners,anchor=west] at (frame.north west) %
+  {\refstepcounter{theorem}\strut{\bfseries\theoname~\thetheorem}\if#1\@empty\relax\relax\else~(#1)\fi};
+  }
+}
+
+% environment for lemas
+\newtcolorbox{lemma}[1][]{
+breakable,
+enhanced,
+colback=red!05,
+colframe=red!70!black,
+top=\baselineskip,
+enlarge top by=\topsep,
+overlay unbroken and first={
+  \node[thick,draw=green!40!black,fill=green!20,rounded corners] at (frame.north) %
+  {\refstepcounter{lemma}\strut{\bfseries\lemmname~\thelemma}\if#1\@empty\relax\relax\else~(#1)\fi};
+  }
+}
+
+\makeatother
+
+\begin{document}
+
+\chapter{Test chapter}
+\begin{theorem}
+\lipsum[4]
+\end{theorem}
+\begin{lemma}[Lemme de Zorn]
+\lipsum[4]
+\end{lemma}
+\begin{theorem}[Loi des grands nombres]
+\lipsum[4]
+\end{theorem}
+
+\end{document}

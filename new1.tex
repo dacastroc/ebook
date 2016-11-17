@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[]{tcolorbox}
+\tcbuselibrary{breakable}
+\newlist{cdescription}{description}{1}
+\setlist[cdescription,1]{before={\begin{tcolorbox}[breakable,boxrule=0pt]},after=\end{tcolorbox}}
+\usepackage{lipsum}
+\begin{document}
+\begin{cdescription}
+\item[first lipsum] \lipsum[1]
+\item[second lipsum] \lipsum[2]
+\item[third lipsum] \lipsum[3]
+\item[fourth lipsum] \lipsum[4]
+\item[fifth lipsum] \lipsum[5]
+\end{cdescription}
+\end{document}

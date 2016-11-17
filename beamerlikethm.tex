@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+
+\usepackage{lipsum}
+
+\colorlet{xlightblue}{blue!5}
+
+\newtcolorbox{beamerlikethm}[1]{
+  title=#1,
+  beamer, 
+  colback=xlightblue,
+  colframe=blue!30,
+  fonttitle=\bfseries,
+  left=1mm,
+  right=1mm,
+  top=1mm,
+  bottom=1mm,
+  middle=1mm,
+  breakable,
+}
+
+\begin{document}
+
+\begin{beamerlikethm}{Theorem (Pythagoras)}
+\[ a^2 + b^2 = c^2 \]
+\end{beamerlikethm}
+
+\lipsum[1-4]
+
+\begin{beamerlikethm}{Something}
+\lipsum[5]
+\end{beamerlikethm}

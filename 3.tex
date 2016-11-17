@@ -1,0 +1,56 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[letterpaper]{article}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\tcbuselibrary{skins,breakable}
+\usetikzlibrary{shadings,shadows}
+
+\title{Beamer blocks in \texttt{article.cls} with \texttt{tcolorbox (v 2.00)}}
+\author{xxxxxx}
+
+\newenvironment{myexampleblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightGreen,colframe=DarkGreen,%
+    colbacklower=LimeGreen!75!LightGreen,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{myalertblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightCoral,colframe=DarkRed,%
+    colbacklower=Tomato!75!LightCoral,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\newenvironment{myblock}[1]{%
+    \tcolorbox[beamer,%
+    noparskip,breakable,
+    colback=LightBlue,colframe=DarkBlue,%
+    colbacklower=DarkBlue!75!LightBlue,%
+    title=#1]}%
+    {\endtcolorbox}
+
+\begin{document}
+\maketitle
+
+\section{Section}
+
+\lipsum[2]
+
+\begin{myblock}{Example of \texttt{myblock}}
+\lipsum[2-3]
+\lipsum[4-5]
+\lipsum[6-7]
+\end{myblock}
+
+\begin{myexampleblock}{Example of \texttt{myexampleblock}}
+\lipsum[2]
+\end{myexampleblock}
+
+\begin{myalertblock}{Example of \texttt{myalertblock}}
+\lipsum[1]
+\end{myalertblock}
+
+\end{document}

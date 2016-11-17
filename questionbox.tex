@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{lipsum}
+
+\newtcolorbox{Qbox}{
+enhanced,
+sidebyside,
+righthand width=60pt,
+colback=white,
+overlay={\node[xshift=-40pt] at (frame.east) 
+  {\includegraphics[width=100pt]{qm}};
+  }
+}
+
+\newcommand\questionbox[1]{%
+  \begin{Qbox}#1\end{Qbox}}
+
+\begin{document}
+
+\questionbox{\lipsum[4]}
+
+\end{document}
